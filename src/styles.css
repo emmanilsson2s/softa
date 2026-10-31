@@ -1,0 +1,126 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * Design system — Frosted Nordic Light
+ * Warm cream ground, deep evergreen brand, muted brass accent.
+ * All colours are oklch tokens. Never hardcode colours in components.
+ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-menu: 1rem;
+
+  --font-display: var(--font-family-display);
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-panel-border: var(--panel-border);
+  --color-panel-light: var(--panel-light);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-muted-foreground: var(--muted-foreground);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --font-family-display: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-family-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --cream: oklch(0.962 0.008 75);
+  --sand: oklch(0.885 0.03 60);
+  --ink: oklch(0.24 0.012 50);
+  --brand: oklch(0.33 0.035 230);
+  --brand-foreground: oklch(0.962 0.008 75);
+  --accent: oklch(0.6 0.09 45);
+  --accent-foreground: oklch(0.98 0.005 75);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --muted-foreground: oklch(0.48 0.012 160);
+  --panel: oklch(0.935 0.014 70);
+  --panel-border: transparent;
+  --panel-light: oklch(0.99 0.004 75);
+  --border: oklch(0.222 0.012 160 / 12%);
+  --input: oklch(0.222 0.012 160 / 12%);
+  --ring: oklch(0.6 0.09 45);
+
+  --shadow-panel: 0 1px 0 oklch(1 0 0 / 50%) inset, 0 18px 40px -24px oklch(0.29 0.021 158 / 35%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-display {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: oklch(0.706 0.087 80 / 30%);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* Frosted glass surface used across sections */
+@utility panel {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(24px) saturate(1.05);
+  -webkit-backdrop-filter: blur(24px) saturate(1.05);
+}
+
+@utility panel-shadow {
+  box-shadow: var(--shadow-panel);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
