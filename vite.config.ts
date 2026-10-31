@@ -7,7 +7,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { normalizeBasePath } from "./scripts/base-path";
 
-const base = normalizeBasePath(process.env["VITE_BASE_PATH"]);
+// Default to this repository; VITE_BASE_PATH still supports root/custom domains.
+const base = normalizeBasePath(process.env["VITE_BASE_PATH"] ?? "/softa/");
+const routerBasepath = base.replace(/\/$/, "") || "/";
 
 export default defineConfig({
   // TanStack renders once at build time; no Nitro server is built or deployed.
@@ -15,7 +17,7 @@ export default defineConfig({
   vite: { base },
   tanstackStart: {
     server: { entry: "server" },
-    router: { basepath: base },
+    router: { basepath: routerBasepath },
     pages: [{ path: "/" }],
     prerender: {
       enabled: true,

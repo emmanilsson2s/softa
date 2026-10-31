@@ -1,7 +1,7 @@
 import { access, readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const base = `/${(process.env.VITE_BASE_PATH ?? "").replace(/^\/+|\/+$/g, "")}/`.replace(/^\/\/$/, "/");
+const base = `/${(process.env.VITE_BASE_PATH ?? "/softa/").replace(/^\/+|\/+$/g, "")}/`.replace(/^\/\/$/, "/");
 const html = await readFile("dist/index.html", "utf8");
 if (!html.includes("<h1") || !html.includes('id="contact"')) throw new Error("Missing prerendered page content.");
 for (const match of html.matchAll(/(?:src|href)="([^"#]+)"/g)) {

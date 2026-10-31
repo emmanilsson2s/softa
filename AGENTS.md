@@ -11,6 +11,6 @@
 
 - Keep section tracking client-side in the shared site header, using section positions and the sticky header height so desktop and mobile menus share the same active state without server dependencies.
 - Retain TanStack Start with Nitro disabled and explicitly prerender public content routes; rendering is build-time only for static GitHub Pages deployment.
-- Use Vite BASE_URL for router and public assets; repository subdirectories must resolve the same site without redesign.
+- Use Vite BASE_URL for public assets and its trailing-slash-free equivalent for both router configurations; default builds target the repository subdirectory while VITE_BASE_PATH can override it, so Pages assets and prerender requests share one prefix.
 - npm run build packages only prerendered client files into dist via postbuild; GitHub Actions deploys dist, never server bundles.
 - Export managed asset pointers into the static artifact during packaging so production does not rely on Lovable asset proxy paths.
