@@ -107,7 +107,7 @@ export const development = {
 export const collections = {
   number: "04",
   eyebrow: "Kollektioner",
-  title: "Kuddar · Mattor · Plädar · Sängkläder · Gardiner · Frotté · Badrockar · Kökstextil · Bädd · Överkast",
+  title: "Kuddar · Mattor · Plädar · Gardiner · Frotté · Badrockar · Kökstextil · Bädd",
   body: "Vi gör allt inom hemtextil – från kuddar och mattor till frotté, badrockar och kökstextil.",
   categories: ["Kuddar", "Mattor", "Plädar", "Sängkläder", "Gardiner"],
   more: ["Frotté", "Badrockar", "Kökstextil", "Bädd", "Överkast"],
