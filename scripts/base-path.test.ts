@@ -3,6 +3,8 @@ import { normalizeBasePath } from "./base-path";
 
 describe("GitHub Pages base path", () => {
   test("root deployment stays at /", () => expect(normalizeBasePath()).toBe("/"));
+  test("production domain defaults to root", () => expect(normalizeBasePath("/")).toBe("/"));
+  test("root router prefix is /", () => expect(normalizeBasePath("/").replace(/\/$/, "") || "/").toBe("/"));
   test("softa repository assets use /softa/", () => expect(normalizeBasePath("softa")).toBe("/softa/"));
   test("softa repository configured base stays /softa/", () => expect(normalizeBasePath("/softa/")).toBe("/softa/"));
   test("softa router prefix is /softa", () => expect(normalizeBasePath("/softa/").replace(/\/$/, "") || "/").toBe("/softa"));

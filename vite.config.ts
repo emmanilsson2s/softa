@@ -7,8 +7,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { normalizeBasePath } from "./scripts/base-path";
 
-// Default to this repository; VITE_BASE_PATH still supports root/custom domains.
-const base = normalizeBasePath(process.env["VITE_BASE_PATH"] ?? "/softa/");
+// Default to the root of the production domain; VITE_BASE_PATH still supports
+// repository subdirectory deployments such as /softa/.
+const base = normalizeBasePath(process.env["VITE_BASE_PATH"] ?? "/");
 const routerBasepath = base.replace(/\/$/, "") || "/";
 
 export default defineConfig({

@@ -13,6 +13,8 @@ import { Contact } from "@/components/site/Contact";
 const title = "Textilier, framtagna för ert sortiment";
 const description =
   "Skandinaviska hemtextilier för grossister och e-handel – kuddar, mattor, plädar, sängkläder och gardiner. Familjeägt sedan 1999.";
+const siteUrl = "https://www.softainterior.se";
+const shareImage = `${siteUrl}/images/og-image.jpg`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +24,32 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${siteUrl}/` },
+      { property: "og:image", content: shareImage },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: shareImage },
+    ],
+    links: [{ rel: "canonical", href: `${siteUrl}/` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Softa Interiör AB",
+          url: siteUrl,
+          email: "frida@softainterior.se",
+          telephone: "+46709854763",
+          foundingDate: "1999",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Gathes v. 80",
+            postalCode: "439 36",
+            addressLocality: "Onsala",
+            addressCountry: "SE",
+          },
+        }),
+      },
     ],
   }),
   component: Index,

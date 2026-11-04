@@ -7,7 +7,7 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
-    // Vite assets use /softa/; TanStack's route prefix is /softa.
+    // Follows Vite's base: / for the production domain, /repo for subdirectory deploys.
     basepath: import.meta.env.BASE_URL.replace(/\/$/, "") || "/",
     context: { queryClient },
     scrollRestoration: true,
